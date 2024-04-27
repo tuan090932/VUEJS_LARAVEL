@@ -22,9 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-
+Route::get('api/articles', [ArticleController::class, 'index'])->middleware('jwt.verify');
 Route::get('api/articles/{id}', [ArticleController::class, 'show']);
-Route::get('api/articles', [ArticleController::class, 'index']);
+//Route::get('api/articles', [ArticleController::class, 'index']);
 Route::post('api/articles', [ArticleController::class, 'store']);
 Route::put('api/articles/{id}', [ArticleController::class, 'update']);
 Route::delete('api/articles/{id}', [ArticleController::class, 'delete']);
